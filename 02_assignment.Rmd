@@ -491,6 +491,29 @@ Specifically, you will do the following:
 * Publish your app to [shinyapps.io](https://www.shinyapps.io/). There are instructions for doing that on the tutorial I linked to above.   
 * Write a paragraph or two describing your app on your website! Link to the app and your GitHub repository in your post. Include a link to your post here. 
 
+**I'm using blogdown for my website but I'm struggling to publish a post... I will work on it but here is what I wrote:**
+
+Using the Lending Club data, I further explored the R package tidymodels and learned about model stacking and interpretation to classify loans as either good or bad. I then created a Shiny web app where I really took time to understand the structure of an app, the reactive components and functions, and some basic styling. 
+
+Well, [here](https://thytng.shinyapps.io/shiny-lending-club/?_ga=2.205953491.1396798748.1617376629-595203214.1617376629) is the final product!
+
+![](images/automatic-tab.png)
+
+The sidebar allows the user to enter in data values to create a new loan observation. This observation will be registered once the "Predict" button is clicked (in other words, it will not be updated each time a variable is changed). In this Automatic tab there is a dropdown menu to select a predictor to vary. The plot below is a CP profile, showing the different probabilities for the observation when this variable is changed, holding all others fixed. Right now, only quantitative variables are allowed for continuous plotting. 
+
+![](images/manual-tab.png)
+
+In this second tab, the user can select a variable (once again, quantitative only) and adjust its value to see the new predicted probability. It serves essentially the same function as the first tab, only it gives the user more control. The plot shows two data points, one is the observation created with the input values from the sidebar, and the other is the same observation but with this updated variable. Every time the slider is adjusted, the program updates the latter and moves its marker to the new predicted value. 
+
+I initially tried to create a new data point each time the variable is changed to populate the plot and make it more interesting, but combined with how the user can also change the sidebar inputs to update the observation, the reactive values turned out to be very tricky to capture. This is the part where I definitely want to revisit in the future.
+
+Some helpful libraries and resources I used for this project are:
+
+* [tidymodels](https://www.tidymodels.org) for modeling,
+* [The Shiny cheat sheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf),
+* [Plotly R](https://plotly.com/r/) for interactive visualizations,
+* [Color Hunt](https://colorhunt.co) for color palette inspiration, and
+* [bslib](https://plotly.com/r/) because styling Shiny apps is a pain.
 
 ## Coded Bias
 
